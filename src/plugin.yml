@@ -2,7 +2,7 @@ name: Simple Suffix
 author: Staartvin
 website: http://dev.bukkit.org/server-mods/simple-suffix/
 main: me.Staartvin.SimpleSuffix.SimpleSuffix
-version: 1.5
+version: 1.6
 description: Let users create their own suffixes and prefixes
 depend: [Vault]
 database: true
@@ -42,6 +42,12 @@ permissions:
         default: op
     simplesuffix.colors:
         description: Allows a player to use colors.
+        default: op
+    simplesuffix.uncensor.suffix:
+        description: Allows a player to use censored words in their suffix.
+        default: op
+    simplesuffix.uncensor.prefix:
+        description: Allows a player to use censored words in their prefix.
         default: op
 commands:
     suffix:
