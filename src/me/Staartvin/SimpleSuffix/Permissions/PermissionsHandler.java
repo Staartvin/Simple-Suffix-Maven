@@ -121,7 +121,7 @@ public class PermissionsHandler{
 		plugin.vaultHandler.setWorldPlayerPrefix(player, prefix, world);
 	}
 	
-	public void clearSuffix(Player player){ 
+	public void clearGlobalSuffix(Player player){ 
 		if (useDatabase()) {
 			Database dsuffix = plugin.sqLite.getSuffix(player.getName());
 			if (dsuffix == null) {
@@ -136,10 +136,10 @@ public class PermissionsHandler{
 			plugin.getDatabase().save(dsuffix);
 			return;
 		}
-		VaultHandler.chat.setPlayerSuffix(player, "");
+		plugin.vaultHandler.clearGlobalSuffix(player.getName());
 	}
 	
-	public void clearPrefix(Player player){ 
+	public void clearWorldPrefix(Player player, String world){ 
 		if (useDatabase()) {
 			Database dprefix = plugin.sqLite.getPrefix(player.getName());
 			if (dprefix == null) {
@@ -154,6 +154,42 @@ public class PermissionsHandler{
 			plugin.getDatabase().save(dprefix);
 			return;
 		}
-		VaultHandler.chat.setPlayerPrefix(player, "");
+		plugin.vaultHandler.clearWorldPrefix(player.getName(), world);
+	}
+	
+	public void clearWorldSuffix(Player player, String world){ 
+		if (useDatabase()) {
+			Database dsuffix = plugin.sqLite.getSuffix(player.getName());
+			if (dsuffix == null) {
+				dsuffix = new Database();
+				dsuffix.setPlayerName(player.getName());
+				dsuffix.setSuffix("");
+				dsuffix.setPrefix("");
+				plugin.getDatabase().save(dsuffix);
+				return;
+			}
+			dsuffix.setSuffix("");
+			plugin.getDatabase().save(dsuffix);
+			return;
+		}
+		plugin.vaultHandler.clearWorldSuffix(player.getName(), world);
+	}
+	
+	public void clearGlobalPrefix(Player player){ 
+		if (useDatabase()) {
+			Database dprefix = plugin.sqLite.getPrefix(player.getName());
+			if (dprefix == null) {
+				dprefix = new Database();
+				dprefix.setPlayerName(player.getName());
+				dprefix.setPrefix("");
+				dprefix.setSuffix("");
+				plugin.getDatabase().save(dprefix);
+				return;
+			}
+			dprefix.setPrefix("");
+			plugin.getDatabase().save(dprefix);
+			return;
+		}
+		plugin.vaultHandler.clearGlobalPrefix(player.getName());
 	}
 }
