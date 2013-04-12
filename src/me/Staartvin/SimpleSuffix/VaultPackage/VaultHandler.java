@@ -74,4 +74,24 @@ public class VaultHandler {
 							plugin.getConfig().getString("predefined suffix"),
 							suffix));
 	}
+	
+	public void clearGlobalPrefix(String player) {
+		for (World world:plugin.getServer().getWorlds()) {
+			chat.setPlayerPrefix(world, player, "");
+		}
+	}
+	
+	public void clearGlobalSuffix(String player) {
+		for (World world:plugin.getServer().getWorlds()) {
+			chat.setPlayerSuffix(world, player, "");
+		}
+	}
+	
+	public void clearWorldPrefix(String player, String world) {
+		chat.setPlayerPrefix(world, player, "");
+	}
+	
+	public void clearWorldSuffix(String player, String world) {
+		chat.setPlayerSuffix(world, player, "");
+	}
 }
