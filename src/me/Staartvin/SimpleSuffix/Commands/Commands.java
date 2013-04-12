@@ -287,7 +287,7 @@ public class Commands {
 					+ " characters!");
 			return true;
 		}
-		if (!player.hasPermission("simplesuffix.uncensor.prefix")) {
+		if (!player.hasPermission("simplesuffix.prefix.bypass.censor")) {
 			if (plugin.commands.hasCensoredWords(resultString)) {
 				sender.sendMessage(ChatColor.RED
 						+ "Prefix contains censored words!");
@@ -432,7 +432,7 @@ public class Commands {
 					+ " characters!");
 			return true;
 		}
-		if (!player.hasPermission("simplesuffix.uncensor.suffix")) {
+		if (!player.hasPermission("simplesuffix.suffix.bypass.censor")) {
 			if (plugin.commands.hasCensoredWords(resultString)) {
 				sender.sendMessage(ChatColor.RED
 						+ "Suffix contains censored words!");

@@ -43,10 +43,10 @@ permissions:
     simplesuffix.colors:
         description: Allows a player to use colors.
         default: op
-    simplesuffix.uncensor.suffix:
+    simplesuffix.suffix.bypass.censor:
         description: Allows a player to use censored words in their suffix.
         default: op
-    simplesuffix.uncensor.prefix:
+    simplesuffix.prefix.bypass.censor:
         description: Allows a player to use censored words in their prefix.
         default: op
 commands:
