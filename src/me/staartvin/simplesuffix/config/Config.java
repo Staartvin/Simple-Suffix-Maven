@@ -11,7 +11,7 @@ public class Config {
 	public Config(SimpleSuffix instance) {
 		plugin = instance;
 	}
-	private String[] censoredWords = {"fuck", "shit", "porn"};
+	private String[] censoredWords = {"fuck", "shit", "porn", "cunt", "dick", "vagina"};
 	
 	public void loadConfiguration() {
 		plugin.getConfig().options().header("SimpleSuffix v" + plugin.getDescription().getVersion() + " Config"

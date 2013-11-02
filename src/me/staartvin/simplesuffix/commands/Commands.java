@@ -79,6 +79,13 @@ public class Commands {
 		return true;
 	}
 
+	/**
+	 * Gets all arguments that are given for the prefix/suffix
+	 * @param args
+	 * @param counter
+	 * @param argsLength
+	 * @return
+	 */
 	public String createResult(String[] args, int counter, int argsLength) {
 		List<String> variableResult = new ArrayList<String>();
 		String resultString = "";
@@ -182,8 +189,14 @@ public class Commands {
 	}
 
 	public boolean setPrefix(CommandSender sender, String args[], boolean self) {
-		// /prefix other Staartvin 
+		// sender is player performing command
+		// arguments are the arguments that are from the command
+		// self is whether a player wants to set its own prefix or someone else's.
+
+		
 		plugin.logger.debug("I pass test 1");
+		
+		// Do permission test
 		if (self) {
 			if (!plugin.hasPermission("simplesuffix.set.prefix.self", sender))
 				return true;
@@ -191,6 +204,8 @@ public class Commands {
 			if (!plugin.hasPermission("simplesuffix.set.prefix.other", sender))
 				return true;
 		}
+		
+		// Is sender a player?
 		if (self) {
 			if (!(sender instanceof Player)) {
 				sender.sendMessage(ChatColor.RED
@@ -198,19 +213,41 @@ public class Commands {
 				return true;
 			}
 		}
+		
+		
 		plugin.logger.debug("I pass test 2");
+		
+		// ResultString stores whole prefix
 		String resultString;
 		World world;
 
 		if (self) {
 			resultString = plugin.commands.createResult(args, 0, args.length);
+			
 		} else {
 			resultString = plugin.commands.createResult(args, 2,
 					(args.length - 2));
 		}
+		
+		// Determine world
+		if (self) {
+			world = getWorld(sender, args, 0, args.length);
+
+			if (world != null) {
+				resultString = removeWorldName(resultString, world.getName());
+			}
+		} else {
+			world = getWorld(sender, args, 2, (args.length - 2));
+
+			if (world != null) {
+				resultString = removeWorldName(resultString, world.getName());
+			}
+		}
+		
 		plugin.logger.debug("I pass test 3");
 		Player player = null;
 
+		// Find target player
 		if (self) {
 			player = (Player) sender;
 		} else {
@@ -230,10 +267,13 @@ public class Commands {
 			}
 			player = matchedPlayers.get(0);
 		}
+		
 		plugin.logger.debug("I pass test 4");
+		
+		// Check whether we have to turn off the prefix.
 		if (self) {
 			if (resultString.contains("off")) {
-				world = getWorld(sender, args, 0, args.length);
+				
 				resultString = "";
 				if (world == null) {
 					sender.sendMessage(ChatColor.GREEN
@@ -248,8 +288,8 @@ public class Commands {
 			}
 		} else {
 			if (resultString.contains("off")) {
-				world = getWorld(sender, args, 2, (args.length - 2));
 				resultString = "";
+				
 				if (world == null) {
 					sender.sendMessage(ChatColor.GREEN + "The global prefix of "
 							+ player.getName() + " has been turned off.");
@@ -264,29 +304,24 @@ public class Commands {
 		}
 		plugin.logger.debug("I pass test 5");
 
-		if (self) {
-			world = getWorld(sender, args, 0, args.length);
-
-			if (world != null) {
-				resultString = removeWorldName(resultString, world.getName());
-			}
-		} else {
-			world = getWorld(sender, args, 2, (args.length - 2));
-
-			if (world != null) {
-				resultString = removeWorldName(resultString, world.getName());
-			}
-		}
+		
+		// Check for formats in the prefix
 		if (!plugin.commands.checkForFormats(resultString, sender))
 			return true;
+		
+		// Check for colours in the prefix
 		if (!plugin.commands.checkColours(resultString, sender))
 			return true;
+		
+		// Check character limit
 		if (!plugin.commands.checkCharacterLimit(resultString, true)) {
 			sender.sendMessage(ChatColor.RED + "Prefix cannot exceed "
 					+ plugin.getConfig().getInt("character limit prefix")
 					+ " characters!");
 			return true;
 		}
+		
+		// Check for censored words
 		if (!player.hasPermission("simplesuffix.prefix.bypass.censor")) {
 			if (plugin.commands.hasCensoredWords(resultString)) {
 				sender.sendMessage(ChatColor.RED
@@ -295,14 +330,17 @@ public class Commands {
 			}
 		}
 		plugin.logger.debug("I pass test 6");
+		
+		// Message player
 		if (self) {
-
+			// Global prefix
 			if (world == null) {
 				plugin.permHandler.setGlobalPrefix(player, resultString);
 				sender.sendMessage(ChatColor.GREEN
 						+ "Your global prefix has been changed to '"
 						+ resultString + "'.");
 			} else {
+				// World-specific world
 				plugin.permHandler.setWorldPrefix(player, resultString, world);
 				sender.sendMessage(ChatColor.GREEN + "Your prefix on world '"
 						+ world.getName() + "' has been changed to '"
@@ -311,13 +349,14 @@ public class Commands {
 			plugin.logger.debug("I've changed the prefix!!");
 			return true;
 		} else {
-
 			if (world == null) {
+				// Global prefix
 				plugin.permHandler.setGlobalPrefix(player, resultString);
 				sender.sendMessage(ChatColor.GREEN + "The global prefix of "
 						+ player.getName() + " has been changed to '"
 						+ resultString + "'.");
 			} else {
+				// World-specific world
 				plugin.permHandler.setWorldPrefix(player, resultString, world);
 				sender.sendMessage(ChatColor.GREEN + "The prefix of "
 						+ player.getName() + " on world '" + world.getName()

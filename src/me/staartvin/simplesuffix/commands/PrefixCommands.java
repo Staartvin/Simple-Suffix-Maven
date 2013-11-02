@@ -21,6 +21,7 @@ public class PrefixCommands implements CommandExecutor {
 			
 			if (args.length < 1) {
 				sender.sendMessage(ChatColor.RED + "Too few arguments!");
+				sender.sendMessage(ChatColor.RED + "Syntax: " + "/prefix (other) (playername) (world 'world') (prefix)");
 				return true;
 			}
 			
@@ -31,6 +32,7 @@ public class PrefixCommands implements CommandExecutor {
 			} else {
 				if (args.length < 3) {
 					sender.sendMessage(ChatColor.RED + "Too few arguments!");
+					sender.sendMessage(ChatColor.RED + "Syntax: " + "/prefix other (playername) (world 'world') (prefix)");
 					return true;
 				}
 				

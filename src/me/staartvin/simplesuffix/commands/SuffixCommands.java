@@ -19,17 +19,24 @@ public class SuffixCommands implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd,
 			String commandLabel, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("suffix")) {
+			
+			// Invalid syntax
 			if (args.length < 1) {
 				sender.sendMessage(ChatColor.RED + "Too few arguments!");
+				sender.sendMessage(ChatColor.RED + "Syntax: " + "/suffix (other) (playername) (world 'world') (suffix)");
 				return true;
 			}
+			
+			// Set your own suffix
 			if (!args[0].equalsIgnoreCase("other")) {
 				return plugin.commands.setSuffix(sender, args, true);	
 			}
+			
 			else {
 			
 				if (args.length < 3) {
 					sender.sendMessage(ChatColor.RED + "Too few arguments!");
+					sender.sendMessage(ChatColor.RED + "Syntax: " + "/suffix other (playername) (world 'world') (suffix)");
 					return true;
 				}
 
