@@ -44,11 +44,13 @@ public class SimpleSuffix extends JavaPlugin {
 		if (vaultHandler.getVault() != null) {
 			if (VaultHandler.chat == null) {
 				logger.logNormal("Permissions plugin does not support chat!");
-				
+			} else {
+				logger.logNormal("Using Permissions plugin for chat!");	
 			}
-			logger.logNormal("Using Permissions plugin for chat!");
+			
 			logger.logVerbose("Hooked into Vault v" + vaultHandler.vault.getDescription().getVersion() + " successfully!");
 		}
+		
 		permHandler.setupPermissions();
 		getCommand("suffix").setExecutor(new SuffixCommands(this));
 		getCommand("prefix").setExecutor(new PrefixCommands(this));
