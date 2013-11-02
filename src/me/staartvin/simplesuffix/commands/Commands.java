@@ -1,14 +1,14 @@
-package me.Staartvin.SimpleSuffix.Commands;
+package me.staartvin.simplesuffix.commands;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.staartvin.simplesuffix.SimpleSuffix;
 
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
 
 public class Commands {
 

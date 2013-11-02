@@ -1,9 +1,9 @@
-package me.Staartvin.SimpleSuffix.Config;
+package me.staartvin.simplesuffix.config;
 
 import java.util.Arrays;
 import java.util.List;
 
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
+import me.staartvin.simplesuffix.SimpleSuffix;
 
 public class Config {
 	SimpleSuffix plugin;

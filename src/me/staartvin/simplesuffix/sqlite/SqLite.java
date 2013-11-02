@@ -1,7 +1,7 @@
-package me.Staartvin.SimpleSuffix.Sqlite;
+package me.staartvin.simplesuffix.sqlite;
 
 
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
+import me.staartvin.simplesuffix.SimpleSuffix;
 
 public class SqLite {
 

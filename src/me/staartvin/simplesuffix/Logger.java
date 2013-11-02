@@ -1,6 +1,5 @@
-package me.Staartvin.SimpleSuffix;
+package me.staartvin.simplesuffix;
 
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
 
 public class Logger {
 	

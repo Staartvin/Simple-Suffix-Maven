@@ -1,8 +1,8 @@
-package me.Staartvin.SimpleSuffix.VaultPackage;
+package me.staartvin.simplesuffix.vault;
 
 import java.util.List;
 
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
+import me.staartvin.simplesuffix.SimpleSuffix;
 import net.milkbowl.vault.chat.Chat;
 
 import org.bukkit.World;

@@ -1,6 +1,6 @@
-package me.Staartvin.SimpleSuffix.Events;
+package me.staartvin.simplesuffix.listeners;
 
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
+import me.staartvin.simplesuffix.SimpleSuffix;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -1,15 +1,17 @@
-package me.Staartvin.SimpleSuffix;
+package me.staartvin.simplesuffix;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import me.Staartvin.SimpleSuffix.Commands.*;
-import me.Staartvin.SimpleSuffix.Config.Config;
-import me.Staartvin.SimpleSuffix.Events.SSChatListener;
-import me.Staartvin.SimpleSuffix.Permissions.PermissionsHandler;
-import me.Staartvin.SimpleSuffix.Sqlite.Database;
-import me.Staartvin.SimpleSuffix.Sqlite.SqLite;
-import me.Staartvin.SimpleSuffix.VaultPackage.VaultHandler;
+import me.staartvin.simplesuffix.commands.Commands;
+import me.staartvin.simplesuffix.commands.PrefixCommands;
+import me.staartvin.simplesuffix.commands.SuffixCommands;
+import me.staartvin.simplesuffix.config.Config;
+import me.staartvin.simplesuffix.listeners.SSChatListener;
+import me.staartvin.simplesuffix.permissions.PermissionsHandler;
+import me.staartvin.simplesuffix.sqlite.Database;
+import me.staartvin.simplesuffix.sqlite.SqLite;
+import me.staartvin.simplesuffix.vault.VaultHandler;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

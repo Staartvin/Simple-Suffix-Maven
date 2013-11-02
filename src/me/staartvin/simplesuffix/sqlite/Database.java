@@ -1,10 +1,10 @@
-package me.Staartvin.SimpleSuffix.Sqlite;
+package me.staartvin.simplesuffix.sqlite;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.avaje.ebean.validation.NotNull;
+import com.sun.istack.internal.NotNull;
 
 @Entity()
 @Table(name = "ss_database")

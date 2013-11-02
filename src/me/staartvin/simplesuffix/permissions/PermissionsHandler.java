@@ -1,11 +1,11 @@
-package me.Staartvin.SimpleSuffix.Permissions;
+package me.staartvin.simplesuffix.permissions;
+
+import me.staartvin.simplesuffix.SimpleSuffix;
+import me.staartvin.simplesuffix.sqlite.Database;
+import me.staartvin.simplesuffix.vault.VaultHandler;
 
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-
-import me.Staartvin.SimpleSuffix.SimpleSuffix;
-import me.Staartvin.SimpleSuffix.Sqlite.Database;
-import me.Staartvin.SimpleSuffix.VaultPackage.VaultHandler;
 
 public class PermissionsHandler{
 
