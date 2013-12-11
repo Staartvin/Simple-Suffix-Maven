@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.istack.internal.NotNull;
+
 @Entity()
 @Table(name = "ss_database")
 public class Database {
@@ -11,10 +13,13 @@ public class Database {
 	    @Id
 	    private int id;
 	    
+	    @NotNull
 	    private String playerName;
 	    
+	    @NotNull
 	    private String suffix;
 	 
+	    @NotNull
 	    private String prefix;
 	    
 	    public void setId(int id) {
