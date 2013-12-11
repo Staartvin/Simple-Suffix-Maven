@@ -33,10 +33,6 @@
 			<id>bukkit-repo</id>
 			<url>http://repo.bukkit.org/content/groups/public/</url>
 		</repository>
-		<repository>
-			<id>vault-repo</id>
-			<url>http://staartvis.0fees.net/MAVEN/</url>
-		</repository>
 	</repositories>
 
 	<dependencies>
@@ -44,11 +40,6 @@
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
 			<version>1.7.2-R0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>net.milkbowl.vault</groupId>
-			<artifactId>vault</artifactId>
-			<version>1.2.25-b333</version>
 		</dependency>
 	</dependencies>
 </project>
