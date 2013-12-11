@@ -3,6 +3,7 @@ package me.staartvin.simplesuffix;
 
 public class Logger {
 	
+	// Maven?
 	SimpleSuffix plugin;
 	
 	protected Logger(SimpleSuffix instance) {
